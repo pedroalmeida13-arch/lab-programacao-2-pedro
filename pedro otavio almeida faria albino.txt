@@ -1,0 +1,223 @@
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class JogoDaVelha {
+    
+    public static void main(String[] args) {
+        
+        Scanner entrada = new Scanner(System.in);
+        Random aleatorio = new Random();
+        
+        char p1 = ' ';
+        char p2 = ' ';
+        char p3 = ' ';
+        char p4 = ' ';
+        char p5 = ' ';
+        char p6 = ' ';
+        char p7 = ' ';
+        char p8 = ' ';
+        char p9 = ' ';
+        
+        int linha;
+        int coluna;
+        int posicao;
+        int jogadas = 0;
+        boolean ganhou = false;
+        boolean posicaoValida;
+        char vencedor = ' ';
+        
+        while (jogadas < 9 && ganhou == false) {
+            
+            System.out.println();
+            System.out.println("    1   2   3");
+            System.out.println("1   " + p1 + " | " + p2 + " | " + p3);
+            System.out.println("   ---+---+---");
+            System.out.println("2   " + p4 + " | " + p5 + " | " + p6);
+            System.out.println("   ---+---+---");
+            System.out.println("3   " + p7 + " | " + p8 + " | " + p9);
+            System.out.println();
+            posicaoValida = false;
+            
+            while (posicaoValida == false) {
+                
+                System.out.println("Sua vez - X");
+                System.out.print("Digite a linha: ");
+                linha = entrada.nextInt();
+                System.out.print("Digite a coluna: ");
+                coluna = entrada.nextInt();
+                posicao = (linha - 1) * 3 + coluna;
+                
+                if (linha < 1 || linha > 3 || coluna < 1 || coluna > 3) {
+                    System.out.println("Linha ou coluna invalida!");
+                } else {
+                    switch (posicao) {
+                        case 1:
+                            if (p1 == ' ') {
+                                p1 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 2:
+                            if (p2 == ' ') {
+                                p2 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 3:
+                            if (p3 == ' ') {
+                                p3 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 4:
+                            if (p4 == ' ') {
+                                p4 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 5:
+                            if (p5 == ' ') {
+                                p5 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 6:
+                            if (p6 == ' ') {
+                                p6 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 7:
+                            if (p7 == ' ') {
+                                p7 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 8:
+                            if (p8 == ' ') {
+                                p8 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 9:
+                            if (p9 == ' ') {
+                                p9 = 'X';
+                                posicaoValida = true;
+                            }
+                            break;
+                    }
+                    if (posicaoValida == false) {
+                        System.out.println("Essa posicao ja esta ocupada!");
+                    }
+                }
+            }
+            jogadas++;
+            if ((p1 == 'X' && p2 == 'X' && p3 == 'X') ||
+                (p4 == 'X' && p5 == 'X' && p6 == 'X') ||
+                (p7 == 'X' && p8 == 'X' && p9 == 'X') ||
+                (p1 == 'X' && p4 == 'X' && p7 == 'X') ||
+                (p2 == 'X' && p5 == 'X' && p8 == 'X') ||
+                (p3 == 'X' && p6 == 'X' && p9 == 'X') ||
+                (p1 == 'X' && p5 == 'X' && p9 == 'X') ||
+                (p3 == 'X' && p5 == 'X' && p7 == 'X')) {
+                ganhou = true;
+                vencedor = 'X';
+            }
+            if (ganhou == false && jogadas < 9) {
+                posicaoValida = false;
+                while (posicaoValida == false) {
+                    posicao = aleatorio.nextInt(9) + 1;
+                    switch (posicao) {
+                        case 1:
+                            if (p1 == ' ') {
+                                p1 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 2:
+                            if (p2 == ' ') {
+                                p2 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 3:
+                            if (p3 == ' ') {
+                                p3 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 4:
+                            if (p4 == ' ') {
+                                p4 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 5:
+                            if (p5 == ' ') {
+                                p5 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 6:
+                            if (p6 == ' ') {
+                                p6 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 7:
+                            if (p7 == ' ') {
+                                p7 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 8:
+                            if (p8 == ' ') {
+                                p8 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                        case 9:
+                            if (p9 == ' ') {
+                                p9 = 'O';
+                                posicaoValida = true;
+                            }
+                            break;
+                    }
+                }
+                
+                System.out.println("A maquina jogou!");
+                jogadas++;
+                
+                if ((p1 == 'O' && p2 == 'O' && p3 == 'O') ||
+                    (p4 == 'O' && p5 == 'O' && p6 == 'O') ||
+                    (p7 == 'O' && p8 == 'O' && p9 == 'O') ||
+                    (p1 == 'O' && p4 == 'O' && p7 == 'O') ||
+                    (p2 == 'O' && p5 == 'O' && p8 == 'O') ||
+                    (p3 == 'O' && p6 == 'O' && p9 == 'O') ||
+                    (p1 == 'O' && p5 == 'O' && p9 == 'O') ||
+                    (p3 == 'O' && p5 == 'O' && p7 == 'O')) {
+                    ganhou = true;
+                    vencedor = 'O';
+                }
+            }
+        }
+        
+        System.out.println();
+        System.out.println("    1   2   3");
+        System.out.println("1   " + p1 + " | " + p2 + " | " + p3);
+        System.out.println("   ---+---+---");
+        System.out.println("2   " + p4 + " | " + p5 + " | " + p6);
+        System.out.println("   ---+---+---");
+        System.out.println("3   " + p7 + " | " + p8 + " | " + p9);
+        System.out.println();
+        
+        if (vencedor == 'X') {
+            System.out.println("Jogador venceu!");
+        } else if (vencedor == 'O') {
+            System.out.println("A maquina venceu!");
+        } else {
+            System.out.println("Empate!");
+        }
+    }
+}
